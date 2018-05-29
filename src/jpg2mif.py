@@ -9,6 +9,7 @@ im = Image.open(input_file)
 pix = im.load()
 width = im.size[0] #长度
 height = im.size[1] #宽度
+print(width, height)
 depth = width * height
 mif_file = open(output_file, 'wb+')
 
@@ -30,6 +31,7 @@ def setLen(str, length):
 for i in range(depth):
     y = int(i / width)
     x = int(i - width * y)
+    print(x, y)
     pixel = pix[x, y]
     #print(pixel[0], pixel[1], pixel[2])
     r = int(pixel[0] / 32)
