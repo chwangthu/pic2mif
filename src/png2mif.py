@@ -1,4 +1,8 @@
 # coding=utf-8 #
+'''
+This program is used for png that has four channels rgba, for png that only has rgb channels, you can jut use jpg2mif
+'''
+
 import sys
 from PIL import Image
 
@@ -16,7 +20,7 @@ mif_file = open(output_file, 'wb+')
 
 mif_file.write(b'WIDTH=10;\n') #r,g,b各三位，透明度一位
 
-str_tep = 'DEPTH=' + str(depth) + '\n'
+str_tep = 'DEPTH=' + str(depth) + ';\n'
 bs = bytes(str_tep, encoding='utf-8')
 
 mif_file.write(bs)
