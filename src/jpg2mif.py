@@ -13,7 +13,7 @@ print(width, height)
 depth = width * height
 mif_file = open(output_file, 'wb+')
 
-mif_file.write(b'WIDTH=8;\n') #写入存储位宽8位 
+mif_file.write(b'WIDTH=9;\n') #写入存储位宽8位 
 
 str_tep = 'DEPTH='+str(depth)+';\n'
 bs = bytes(str_tep, encoding='utf8')
@@ -36,14 +36,14 @@ for i in range(depth):
     #print(pixel[0], pixel[1], pixel[2])
     r = int(pixel[0] / 32)
     g = int(pixel[1] / 32)
-    b = int(pixel[2] / 64)
+    b = int(pixel[2] / 32)
     r_bin = str(bin(r))[2:]
     g_bin = str(bin(g))[2:]
     b_bin = str(bin(b))[2:]
     r_bin = setLen(r_bin, 3)
     g_bin = setLen(g_bin, 3)
-    b_bin = setLen(b_bin, 2)
-    rgb_bin = str(str(i) + ':' + r_bin + g_bin + b_bin + ';\n')
+    b_bin = setLen(b_bin, 3)
+    rgb_bin = str(str(i) + ':' + r_bin + g_bin + b_bin + '1;\n')
     rgb_bin = bytes(rgb_bin, encoding='utf-8')
 
     mif_file.write(rgb_bin)
